@@ -25,8 +25,8 @@ function App() {
 					}}
 					onMouseOut={() => {
 						setNameHovered(false)
-          }}
-          cursor={nameHovered ? 'pointer' : 'cursor'}
+					}}
+					cursor={nameHovered ? "pointer" : "cursor"}
 				>
 					Cam Knopp : Musician
 				</div>
@@ -44,8 +44,8 @@ function App() {
 						}}
 						color="#9b6954"
 						size={40}
-            opacity={instagramHovered ? 0.5 : 1}
-            cursor={instagramHovered ? 'pointer' : 'cursor'}
+						opacity={instagramHovered ? 0.5 : 1}
+						cursor={instagramHovered ? "pointer" : "cursor"}
 					/>
 					<Facebook
 						onMouseOver={() => {
@@ -53,15 +53,15 @@ function App() {
 						}}
 						onMouseOut={() => {
 							setFacebookHovered(false)
-            }}
-            onClick={e => {
+						}}
+						onClick={e => {
 							e.preventDefault()
 							window.open("https://www.facebook.com/camknoppmusic/")
 						}}
 						color="#4267B2"
 						size={40}
-            opacity={facebookHovered ? 0.5 : 1}
-            cursor={facebookHovered ? 'pointer' : 'cursor'}
+						opacity={facebookHovered ? 0.5 : 1}
+						cursor={facebookHovered ? "pointer" : "cursor"}
 					/>
 					<Youtube
 						onMouseOver={() => {
@@ -69,16 +69,35 @@ function App() {
 						}}
 						onMouseOut={() => {
 							setYoutubeHovered(false)
-            }}
-            onClick={e => {
+						}}
+						onClick={e => {
 							e.preventDefault()
-							window.open("https://www.youtube.com/channel/UCcwGXpKW4HmBtmRC5I7wFEg")
+							window.open(
+								"https://www.youtube.com/channel/UCcwGXpKW4HmBtmRC5I7wFEg"
+							)
 						}}
 						color="red"
 						size={40}
-            opacity={youtubeHovered ? 0.5 : 1}
-            cursor={youtubeHovered ? 'pointer' : 'cursor'}
+						opacity={youtubeHovered ? 0.5 : 1}
+						cursor={youtubeHovered ? "pointer" : "cursor"}
 					/>
+				</div>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+
+				<div class="subtitles" style={{ float: "left" }}>
+					Home
+				</div>
+				<div class="subtitles" style={{ float: "left" }}>
+					Music
+				</div>
+				<div class="subtitles" style={{ float: "left" }}>
+					Merch
+				</div>
+				<div class="subtitles" style={{ float: "left" }}>
+					About
 				</div>
 			</header>
 		</div>
