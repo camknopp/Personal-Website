@@ -2,9 +2,12 @@
 
 .main-title {
   font-family: 'Quicksand';
+  float: left;
   font-size: 30px;
-  text-align: left;
-  padding-left: 50px
+}
+
+.social-buttons {
+  float: right
 }
 
 .App {

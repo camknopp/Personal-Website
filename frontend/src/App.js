@@ -15,6 +15,7 @@ function App() {
 
 	return (
 		<div>
+			<div style={{ whiteSpace: "pre-wrap" }}>{` `}</div>
 			<header>
 				<div
 					class="main-title"
@@ -24,46 +25,61 @@ function App() {
 					}}
 					onMouseOut={() => {
 						setNameHovered(false)
-					}}
+          }}
+          cursor={nameHovered ? 'pointer' : 'cursor'}
 				>
 					Cam Knopp : Musician
 				</div>
-				<div style={{ textAlign: "right" }}>
+				<div class="social-buttons">
 					<Instagram
-            onMouseOver={() => {
+						onMouseOver={() => {
 							setInstagramHovered(true)
-            }}
-            onMouseOut={() => {
+						}}
+						onMouseOut={() => {
 							setInstagramHovered(false)
+						}}
+						onClick={e => {
+							e.preventDefault()
+							window.open("https://www.instagram.com/camknopp/?hl=en")
 						}}
 						color="#9b6954"
 						size={40}
-						opacity={instagramHovered ? 0.5 : 1}
+            opacity={instagramHovered ? 0.5 : 1}
+            cursor={instagramHovered ? 'pointer' : 'cursor'}
 					/>
 					<Facebook
-            onMouseOver={() => {
+						onMouseOver={() => {
 							setFacebookHovered(true)
-            }}
-            onMouseOut={() => {
+						}}
+						onMouseOut={() => {
 							setFacebookHovered(false)
+            }}
+            onClick={e => {
+							e.preventDefault()
+							window.open("https://www.facebook.com/camknoppmusic/")
 						}}
 						color="#4267B2"
 						size={40}
-						opacity={facebookHovered ? 0.5 : 1}
+            opacity={facebookHovered ? 0.5 : 1}
+            cursor={facebookHovered ? 'pointer' : 'cursor'}
 					/>
 					<Youtube
 						onMouseOver={() => {
 							setYoutubeHovered(true)
-            }}
-            onMouseOut={() => {
+						}}
+						onMouseOut={() => {
 							setYoutubeHovered(false)
+            }}
+            onClick={e => {
+							e.preventDefault()
+							window.open("https://www.youtube.com/channel/UCcwGXpKW4HmBtmRC5I7wFEg")
 						}}
 						color="red"
 						size={40}
-						opacity={youtubeHovered ? 0.5 : 1}
+            opacity={youtubeHovered ? 0.5 : 1}
+            cursor={youtubeHovered ? 'pointer' : 'cursor'}
 					/>
 				</div>
-				<p>word</p>
 			</header>
 		</div>
 	)
