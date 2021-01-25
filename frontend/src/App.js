@@ -23,15 +23,17 @@ function App() {
 						onClick={e => {
 							e.preventDefault()
 							setShowAbout(!showAbout)
-							setShowFacebook(false)
-							setShowInstagram(false)
-							setShowYoutube(false)
-              setShowSpotify(false)
-              window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-              });
+							window.scrollTo({
+								top: 0,
+								left: 0,
+								behavior: "smooth"
+							})
+							setTimeout(() => {
+								setShowFacebook(false)
+								setShowInstagram(false)
+								setShowYoutube(false)
+								setShowSpotify(false)
+							}, 300)
 						}}
 						className="main-title"
 					>
@@ -47,15 +49,18 @@ function App() {
 							onClick={e => {
 								e.preventDefault()
 								setShowYoutube(!showYoutube)
-								setShowInstagram(false)
-								setShowFacebook(false)
-								setShowSpotify(false)
-                setShowAbout(false)
-                window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: 'smooth'
-                });							}}
+								window.scrollTo({
+									top: 0,
+									left: 0,
+									behavior: "smooth"
+								})
+								setTimeout(() => {
+									setShowInstagram(false)
+									setShowFacebook(false)
+									setShowSpotify(false)
+									setShowAbout(false)
+								}, 300)
+							}}
 						>
 							<SocialButton
 								websiteName={"Youtube"}
@@ -66,15 +71,18 @@ function App() {
 							onClick={e => {
 								e.preventDefault()
 								setShowInstagram(!showInstagram)
-								setShowFacebook(false)
-								setShowYoutube(false)
-								setShowSpotify(false)
-                setShowAbout(false)
-                window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: 'smooth'
-                });							}}
+								window.scrollTo({
+									top: 0,
+									left: 0,
+									behavior: "smooth"
+								})
+								setTimeout(() => {
+									setShowFacebook(false)
+									setShowYoutube(false)
+									setShowSpotify(false)
+									setShowAbout(false)
+								}, 300)
+							}}
 						>
 							<SocialButton
 								websiteName={"Instagram"}
@@ -85,15 +93,18 @@ function App() {
 							onClick={e => {
 								e.preventDefault()
 								setShowFacebook(!showFacebook)
-								setShowInstagram(false)
-								setShowYoutube(false)
-								setShowSpotify(false)
-                setShowAbout(false)
-                window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: 'smooth'
-                });							}}
+								window.scrollTo({
+									top: 0,
+									left: 0,
+									behavior: "smooth"
+								})
+								setTimeout(() => {
+									setShowInstagram(false)
+									setShowYoutube(false)
+									setShowSpotify(false)
+									setShowAbout(false)
+								}, 300)
+							}}
 						>
 							<SocialButton
 								websiteName={"Facebook"}
@@ -102,17 +113,20 @@ function App() {
 						</div>
 						<div
 							onClick={e => {
-                e.preventDefault()
+								e.preventDefault()
 								setShowSpotify(!showSpotify)
-								setShowFacebook(false)
-								setShowInstagram(false)
-								setShowYoutube(false)
-                setShowAbout(false)
-                window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: 'smooth'
-                })							}}
+								window.scrollTo({
+									top: 0,
+									left: 0,
+									behavior: "smooth"
+								})
+								setTimeout(() => {
+									setShowFacebook(false)
+									setShowInstagram(false)
+									setShowYoutube(false)
+									setShowAbout(false)
+								}, 300)
+							}}
 						>
 							<SocialButton
 								websiteName="Spotify"
@@ -148,7 +162,7 @@ function App() {
 						<div className="card">
 							<SpotifyPlayer uri="https://open.spotify.com/track/1wT1ZSB11W8PYHNSl7afqJ?si=oAawGXi1SjmFBVV6oWsjSg" />
 						</div>
-            <div className="card">
+						<div className="card">
 							<SpotifyPlayer uri="https://open.spotify.com/track/1IGdlPlwzuy57O9xCg0HmD?si=Rx8DDmzVQBmX6AAW609CbA" />
 						</div>
 					</div>
@@ -165,7 +179,7 @@ function App() {
 								url="https://www.facebook.com/camknoppmusic/posts/1806289546203955"
 							/>
 						</div>
-            <div className="facebook-card">
+						<div className="facebook-card">
 							<Facebook
 								type="post"
 								width="100%"
