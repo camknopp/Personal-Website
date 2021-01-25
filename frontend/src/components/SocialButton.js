@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "../App.css"
 import { Instagram, Facebook, Youtube } from "react-feather"
 import { FaSpotify } from "react-icons/fa"
+import { Collapse } from "react-collapse"
 
 const SocialButton = ({ websiteName, url }) => {
 	if (websiteName === "Facebook") {
@@ -33,6 +34,7 @@ const SocialButton = ({ websiteName, url }) => {
 	} else if (websiteName === "Youtube") {
 		return (
 			<div className="social-button">
+				{/* <h1>Most recent Youtube vids...</h1> */}
 				<Youtube
 					onClick={e => {
 						e.preventDefault()
@@ -46,8 +48,9 @@ const SocialButton = ({ websiteName, url }) => {
 	} else if (websiteName === "Spotify") {
 		return (
 			<div className="social-button">
-				<FaSpotify color="#1DB954"
-				size="40"
+				<FaSpotify
+					color="#1DB954"
+					size="40"
 					onClick={e => {
 						e.preventDefault()
 						window.open(url)

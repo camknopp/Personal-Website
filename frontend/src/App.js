@@ -6,11 +6,21 @@ import InstagramEmbed from "react-instagram-embed"
 import ReactPlayer from "react-player"
 import SpotifyPlayer from "react-spotify-player"
 import { Facebook } from "reactjs-social-embed"
+import { Collapse } from "react-collapse"
+
 
 function App() {
+
+  const [open, setOpen] = useState(false)
+
 	return (
+    <div>
+    <button onClick={(e) => {
+      e.preventDefault()
+      setOpen(!open)
+    }} >click</button>
+    <Collapse className="ReactCollapse--collapse" isOpened={open}>
 		<div>
-			<div style={{ whiteSpace: "pre-wrap" }}>{` `}</div>
 			<header className="sticky-header">
 				<div className="main-title">Cam Knopp : Musician</div>
 
@@ -41,6 +51,7 @@ function App() {
 				<br></br>
 				<br></br>
 			</header>
+
 			<div style={{textAlign: "center"}}>
 				<ReactPlayer url="https://www.youtube.com/watch?v=3fmqava7CxI&ab_channel=CamKnoppMusic" />
 			</div>
@@ -57,6 +68,8 @@ function App() {
 			/>
       </div>
 		</div>
+    </Collapse>
+    </div>
 	)
 }
 
