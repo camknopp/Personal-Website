@@ -39,6 +39,10 @@
     ]
   },
   "devDependencies": {
-    "react-feather": "^2.0.9"
+    "dotenv": "^8.2.0",
+    "react-feather": "^2.0.9",
+    "react-instagram-embed": "^2.0.0",
+    "react-player": "^2.8.1",
+    "react-spotify-player": "^1.0.4"
   }
 }
