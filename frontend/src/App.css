@@ -8,15 +8,30 @@
 	margin-left: 50px;
 }
 
+.main-title:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
 .subtitles {
 	font-family: "Noto Serif";
 	margin-left: 52px;
 }
 
-.social-buttons {
+.subtitles:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.social-button {
 	float: right;
 	margin-top: 20px;
 	margin-right: 50px;
+}
+
+.social-button:hover {
+	opacity: 0.5;
+	cursor: pointer;
 }
 
 .App {
