@@ -2,13 +2,8 @@ import React, { useState } from "react"
 import "../App.css"
 import { Instagram, Facebook, Youtube } from "react-feather"
 import { FaSpotify } from "react-icons/fa"
-import { Collapse } from "react-collapse"
 
 const SocialButton = ({ websiteName, url }) => {
-//	const [open, setOpen] = useState(false)
-
-	
-
 	if (websiteName === "Facebook") {
 		return (
 			<div className="social-button">

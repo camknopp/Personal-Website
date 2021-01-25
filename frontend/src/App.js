@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react"
 import "./App.css"
-import MenuItem from "./components/MenuItem"
 import SocialButton from "./components/SocialButton"
 import InstagramEmbed from "react-instagram-embed"
 import ReactPlayer from "react-player"
 import SpotifyPlayer from "react-spotify-player"
 import { Facebook } from "reactjs-social-embed"
 import { Collapse } from "react-collapse"
-import { AwesomeButton } from "react-awesome-button"
-import "react-awesome-button/dist/styles.css"
+import AboutPage from "./components/AboutPage"
 
 function App() {
+	const [showAbout, setShowAbout] = useState(false)
 	const [showYoutube, setShowYoutube] = useState(false)
 	const [showInstagram, setShowInstagram] = useState(false)
 	const [showFacebook, setShowFacebook] = useState(false)
@@ -20,12 +19,25 @@ function App() {
 		<div>
 			<div>
 				<header className="sticky-header">
-					<div className="main-title">Cam Knopp : Musician</div>
+					<div
+						onClick={e => {
+							e.preventDefault()
+							setShowAbout(!showAbout)
+							setShowFacebook(false)
+							setShowInstagram(false)
+							setShowYoutube(false)
+							setShowSpotify(false)
+						}}
+						className="main-title"
+					>
+						Cam Knopp : Musician
+					</div>
 
 					<br></br>
 					<br></br>
 
 					<div className="flex-container">
+						<div>{}</div>
 						<div
 							onClick={e => {
 								e.preventDefault()
@@ -33,6 +45,7 @@ function App() {
 								setShowInstagram(false)
 								setShowFacebook(false)
 								setShowSpotify(false)
+								setShowAbout(false)
 							}}
 						>
 							<SocialButton
@@ -47,6 +60,7 @@ function App() {
 								setShowFacebook(false)
 								setShowYoutube(false)
 								setShowSpotify(false)
+								setShowAbout(false)
 							}}
 						>
 							<SocialButton
@@ -61,6 +75,7 @@ function App() {
 								setShowInstagram(false)
 								setShowYoutube(false)
 								setShowSpotify(false)
+								setShowAbout(false)
 							}}
 						>
 							<SocialButton
@@ -71,10 +86,11 @@ function App() {
 						<div
 							onClick={e => {
 								e.preventDefault()
-                setShowSpotify(!showSpotify)
-                setShowFacebook(false)
-                setShowInstagram(false)
-                setShowYoutube(false)
+								setShowSpotify(!showSpotify)
+								setShowFacebook(false)
+								setShowInstagram(false)
+								setShowYoutube(false)
+								setShowAbout(false)
 							}}
 						>
 							<SocialButton
@@ -85,38 +101,41 @@ function App() {
 					</div>
 					<br></br>
 				</header>
+				<Collapse className=".ReactCollapse--collapse" isOpened={showAbout}>
+					<AboutPage />
+				</Collapse>
 
-        <Collapse className=".ReactCollapse--collapse" isOpened={showYoutube} >
-				<div className="scrolling-wrapper-flexbox" >
-          <div className="card">
-          <ReactPlayer url="https://www.youtube.com/watch?v=3fmqava7CxI&ab_channel=CamKnoppMusic" />
-          </div>
-          <div className="card">
-          <ReactPlayer url="https://www.youtube.com/watch?v=4Jrp1jKm_gE&feature=youtu.be&ab_channel=CamKnoppMusic" />
-          </div>
-          <div className="card">
-          <ReactPlayer url="https://www.youtube.com/watch?v=SZ1Q1v5Q1hw&ab_channel=CamKnoppMusic" />
-          </div>
-				</div>
-        </Collapse>
-        <Collapse className=".ReactCollapse--collapse" isOpened={showSpotify}>
-				<div className="flex-container" >
-					<SpotifyPlayer uri="https://open.spotify.com/track/7ItGXjb2MaHFwrWQcBphCA?si=j8LAki_pQFCh2G7d5iu74w" />
-				</div>
-        </Collapse>
-        <Collapse className=".ReactCollapse--collapse" isOpened={showFacebook}>
-				<div className="flex-container" >
-					<Facebook
-						type="post"
-						width="100%"
-						height="680px"
-						show_text={true}
-						url="https://www.facebook.com/camknoppmusic/posts/1806289546203955"
-					/>
-				</div>
-        </Collapse>
+				<Collapse className=".ReactCollapse--collapse" isOpened={showYoutube}>
+					<div className="scrolling-wrapper-flexbox">
+						<div className="card">
+							<ReactPlayer url="https://www.youtube.com/watch?v=3fmqava7CxI&ab_channel=CamKnoppMusic" />
+						</div>
+						<div className="card">
+							<ReactPlayer url="https://www.youtube.com/watch?v=4Jrp1jKm_gE&feature=youtu.be&ab_channel=CamKnoppMusic" />
+						</div>
+						<div className="card">
+							<ReactPlayer url="https://www.youtube.com/watch?v=SZ1Q1v5Q1hw&ab_channel=CamKnoppMusic" />
+						</div>
+					</div>
+				</Collapse>
+				<Collapse className=".ReactCollapse--collapse" isOpened={showSpotify}>
+					<div className="flex-container">
+						<SpotifyPlayer uri="https://open.spotify.com/track/7ItGXjb2MaHFwrWQcBphCA?si=j8LAki_pQFCh2G7d5iu74w" />
+					</div>
+				</Collapse>
+				<Collapse className=".ReactCollapse--collapse" isOpened={showFacebook}>
+					<div className="flex-container">
+						<Facebook
+							type="post"
+							width="100%"
+							height="680px"
+							show_text={true}
+							url="https://www.facebook.com/camknoppmusic/posts/1806289546203955"
+						/>
+					</div>
+				</Collapse>
 
-        {/* TODO: ADD IN INSTAGRAM EMBEDDING */}
+				{/* TODO: ADD IN INSTAGRAM EMBEDDING */}
 			</div>
 		</div>
 	)
