@@ -7,41 +7,19 @@ const SocialButton = ({ websiteName, url }) => {
 	if (websiteName === "Facebook") {
 		return (
 			<div className="social-button">
-				<Facebook
-					// onClick={e => {
-					// 	e.preventDefault()
-					// 	window.open(url)
-					// }}
-					color="#4267B2"
-					size={40}
-				/>
+				<Facebook color="#4267B2" size={40} />
 			</div>
 		)
 	} else if (websiteName === "Instagram") {
 		return (
 			<div className="social-button">
-				<Instagram
-					// onClick={e => {
-					// 	e.preventDefault()
-					// 	window.open("https://www.instagram.com/camknopp/?hl=en")
-					// }}
-					color="#9b6954"
-					size={40}
-				/>
+				<Instagram color="#9b6954" size={40} />
 			</div>
 		)
 	} else if (websiteName === "Youtube") {
 		return (
 			<div className="social-button">
-				{/* <h1>Most recent Youtube vids...</h1> */}
-				<Youtube
-					// onClick={e => {
-					// 	e.preventDefault()
-					// 	window.open(url)
-					// }}
-					color="red"
-					size={40}
-				/>
+				<Youtube color="red" size={40} />
 			</div>
 		)
 	} else if (websiteName === "Spotify") {
@@ -50,10 +28,6 @@ const SocialButton = ({ websiteName, url }) => {
 				<FaSpotify
 					color="#1DB954"
 					size="40"
-					// onClick={e => {
-					// 	e.preventDefault()
-					// 	window.open(url)
-					// }}
 				/>
 			</div>
 		)

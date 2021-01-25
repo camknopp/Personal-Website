@@ -6,7 +6,7 @@ const AboutPage = () => {
         <div>
             <h1>About</h1>
             <p>
-                Cam Knopp is a musician from Massachusetts.
+                Cam Knopp is a musician from Milford, Massachusetts.
             </p>
         </div>
     )

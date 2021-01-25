@@ -9,7 +9,7 @@ import { Collapse } from "react-collapse"
 import AboutPage from "./components/AboutPage"
 
 function App() {
-	const [showAbout, setShowAbout] = useState(false)
+	const [showAbout, setShowAbout] = useState(true)
 	const [showYoutube, setShowYoutube] = useState(false)
 	const [showInstagram, setShowInstagram] = useState(false)
 	const [showFacebook, setShowFacebook] = useState(false)
@@ -26,7 +26,12 @@ function App() {
 							setShowFacebook(false)
 							setShowInstagram(false)
 							setShowYoutube(false)
-							setShowSpotify(false)
+              setShowSpotify(false)
+              window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+              });
 						}}
 						className="main-title"
 					>
@@ -45,8 +50,12 @@ function App() {
 								setShowInstagram(false)
 								setShowFacebook(false)
 								setShowSpotify(false)
-								setShowAbout(false)
-							}}
+                setShowAbout(false)
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: 'smooth'
+                });							}}
 						>
 							<SocialButton
 								websiteName={"Youtube"}
@@ -60,8 +69,12 @@ function App() {
 								setShowFacebook(false)
 								setShowYoutube(false)
 								setShowSpotify(false)
-								setShowAbout(false)
-							}}
+                setShowAbout(false)
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: 'smooth'
+                });							}}
 						>
 							<SocialButton
 								websiteName={"Instagram"}
@@ -75,8 +88,12 @@ function App() {
 								setShowInstagram(false)
 								setShowYoutube(false)
 								setShowSpotify(false)
-								setShowAbout(false)
-							}}
+                setShowAbout(false)
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: 'smooth'
+                });							}}
 						>
 							<SocialButton
 								websiteName={"Facebook"}
@@ -85,13 +102,17 @@ function App() {
 						</div>
 						<div
 							onClick={e => {
-								e.preventDefault()
+                e.preventDefault()
 								setShowSpotify(!showSpotify)
 								setShowFacebook(false)
 								setShowInstagram(false)
 								setShowYoutube(false)
-								setShowAbout(false)
-							}}
+                setShowAbout(false)
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: 'smooth'
+                })							}}
 						>
 							<SocialButton
 								websiteName="Spotify"
@@ -118,20 +139,41 @@ function App() {
 						</div>
 					</div>
 				</Collapse>
+
 				<Collapse className=".ReactCollapse--collapse" isOpened={showSpotify}>
-					<div className="flex-container">
-						<SpotifyPlayer uri="https://open.spotify.com/track/7ItGXjb2MaHFwrWQcBphCA?si=j8LAki_pQFCh2G7d5iu74w" />
+					<div className="scrolling-wrapper-flexbox">
+						<div className="card">
+							<SpotifyPlayer uri="https://open.spotify.com/track/7ItGXjb2MaHFwrWQcBphCA?si=j8LAki_pQFCh2G7d5iu74w" />
+						</div>
+						<div className="card">
+							<SpotifyPlayer uri="https://open.spotify.com/track/1wT1ZSB11W8PYHNSl7afqJ?si=oAawGXi1SjmFBVV6oWsjSg" />
+						</div>
+            <div className="card">
+							<SpotifyPlayer uri="https://open.spotify.com/track/1IGdlPlwzuy57O9xCg0HmD?si=Rx8DDmzVQBmX6AAW609CbA" />
+						</div>
 					</div>
 				</Collapse>
+
 				<Collapse className=".ReactCollapse--collapse" isOpened={showFacebook}>
-					<div className="flex-container">
-						<Facebook
-							type="post"
-							width="100%"
-							height="680px"
-							show_text={true}
-							url="https://www.facebook.com/camknoppmusic/posts/1806289546203955"
-						/>
+					<div className="scrolling-wrapper-flexbox">
+						<div className="facebook-card">
+							<Facebook
+								type="post"
+								width="100%"
+								height="680px"
+								show_text={true}
+								url="https://www.facebook.com/camknoppmusic/posts/1806289546203955"
+							/>
+						</div>
+            <div className="facebook-card">
+							<Facebook
+								type="post"
+								width="100%"
+								//height="680px"
+								show_text={true}
+								url="https://www.facebook.com/camknoppmusic/posts/987330084766576"
+							/>
+						</div>
 					</div>
 				</Collapse>
 
