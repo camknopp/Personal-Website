@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import "../App.css"
 import { Instagram, Facebook, Youtube } from "react-feather"
+import { FaSpotify } from "react-icons/fa"
 
 const SocialButton = ({ websiteName, url }) => {
 	if (websiteName === "Facebook") {
@@ -39,6 +40,18 @@ const SocialButton = ({ websiteName, url }) => {
 					}}
 					color="red"
 					size={40}
+				/>
+			</div>
+		)
+	} else if (websiteName === "Spotify") {
+		return (
+			<div className="social-button">
+				<FaSpotify color="#1DB954"
+				size="40"
+					onClick={e => {
+						e.preventDefault()
+						window.open(url)
+					}}
 				/>
 			</div>
 		)

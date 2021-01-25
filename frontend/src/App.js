@@ -26,6 +26,7 @@ function App() {
 					websiteName={"Facebook"}
 					url={"https://www.facebook.com/camknoppmusic/"}
 				/>
+        <SocialButton websiteName="Spotify" url="https://open.spotify.com/artist/2IdGjQXZoh0RKJlYFabIce?si=a7cTK0y-QQeF1Qxbm-sJVg" />
 				<br></br>
 				<br></br>
 				<br></br>
