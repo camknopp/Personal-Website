@@ -10,7 +10,7 @@ const MenuItem = ({ name, url }) => {
 					e.preventDefault()
 					window.open(url)
 				}}
-				class="subtitles"
+				className="subtitles"
 				style={{ float: "left" }}
 			>
 				{name}

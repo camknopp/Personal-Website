@@ -5,7 +5,7 @@ import { Instagram, Facebook, Youtube } from "react-feather"
 const SocialButton = ({ websiteName, url }) => {
 	if (websiteName === "Facebook") {
 		return (
-			<div class="social-button">
+			<div className="social-button">
 				<Facebook
 					onClick={e => {
 						e.preventDefault()
@@ -18,7 +18,7 @@ const SocialButton = ({ websiteName, url }) => {
 		)
 	} else if (websiteName === "Instagram") {
 		return (
-			<div class="social-button">
+			<div className="social-button">
 				<Instagram
 					onClick={e => {
 						e.preventDefault()
@@ -31,7 +31,7 @@ const SocialButton = ({ websiteName, url }) => {
 		)
 	} else if (websiteName === "Youtube") {
 		return (
-			<div class="social-button">
+			<div className="social-button">
 				<Youtube
 					onClick={e => {
 						e.preventDefault()
