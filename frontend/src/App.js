@@ -22,7 +22,7 @@ function App() {
 					<div
 						onClick={e => {
 							e.preventDefault()
-							setShowAbout(!showAbout)
+              setShowAbout(!showAbout)
 							window.scrollTo({
 								top: 0,
 								left: 0,
@@ -33,7 +33,7 @@ function App() {
 								setShowInstagram(false)
 								setShowYoutube(false)
 								setShowSpotify(false)
-							}, 300)
+							}, 100)
 						}}
 						className="main-title"
 					>
@@ -59,7 +59,7 @@ function App() {
 									setShowFacebook(false)
 									setShowSpotify(false)
 									setShowAbout(false)
-								}, 300)
+								}, 100)
 							}}
 						>
 							<SocialButton
@@ -81,7 +81,7 @@ function App() {
 									setShowYoutube(false)
 									setShowSpotify(false)
 									setShowAbout(false)
-								}, 300)
+								}, 100)
 							}}
 						>
 							<SocialButton
@@ -103,7 +103,7 @@ function App() {
 									setShowYoutube(false)
 									setShowSpotify(false)
 									setShowAbout(false)
-								}, 300)
+								}, 100)
 							}}
 						>
 							<SocialButton
@@ -125,7 +125,7 @@ function App() {
 									setShowInstagram(false)
 									setShowYoutube(false)
 									setShowAbout(false)
-								}, 300)
+								}, 100)
 							}}
 						>
 							<SocialButton
@@ -170,7 +170,7 @@ function App() {
 
 				<Collapse className=".ReactCollapse--collapse" isOpened={showFacebook}>
 					<div className="scrolling-wrapper-flexbox">
-						<div className="facebook-card">
+						<div className="card">
 							<Facebook
 								type="post"
 								width="100%"

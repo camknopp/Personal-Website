@@ -29,9 +29,9 @@
 
 .facebook-card {
 	display: inline-block;
-	width: 100%;
-	padding-left: 35px;
-	padding-right: 35px;
+	--width: 100%;
+	padding-left: 500px;
+	padding-right: 500px;
 }
 
 .sticky-header {
