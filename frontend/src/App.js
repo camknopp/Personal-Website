@@ -12,7 +12,7 @@ function App() {
 	return (
 		<div>
 			<div style={{ whiteSpace: "pre-wrap" }}>{` `}</div>
-			<header>
+			<header class="sticky-header">
 				<div class="main-title">Cam Knopp : Musician</div>
 
 				<SocialButton

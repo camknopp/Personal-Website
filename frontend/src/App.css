@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand|Noto+Serif&display=swap");
 
+.sticky-header {
+	position: sticky
+}
+
 .main-title {
 	font-family: "Quicksand";
 	float: left;
