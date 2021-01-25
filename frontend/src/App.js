@@ -7,13 +7,16 @@ import SpotifyPlayer from "react-spotify-player"
 import { Facebook } from "reactjs-social-embed"
 import { Collapse } from "react-collapse"
 import AboutPage from "./components/AboutPage"
+import { getYoutubeUrls } from "./services/retrieveSocialMedia"
 
 function App() {
 	const [showAbout, setShowAbout] = useState(true)
 	const [showYoutube, setShowYoutube] = useState(false)
 	const [showInstagram, setShowInstagram] = useState(false)
 	const [showFacebook, setShowFacebook] = useState(false)
-	const [showSpotify, setShowSpotify] = useState(false)
+  const [showSpotify, setShowSpotify] = useState(false)
+  
+  console.log(getYoutubeUrls())
 
 	return (
 		<div>
