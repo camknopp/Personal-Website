@@ -23,11 +23,13 @@ function App() {
 	const [showSpotify, setShowSpotify] = useState(false)
 
 	// effect hook used to retrieve social media urls from respective APIs
-	useEffect(() => {
-		console.log(getYoutubeUrls())
-		console.log(getSpotifyUrls())
-		console.log(getFacebookUrls())
-		console.log(getInstagramUrls())
+	useEffect(async () => {
+    // console.log(getYoutubeUrls())
+    const result = await getSpotifyUrls()
+    console.log(result)
+	//	console.log(getSpotifyUrls())
+		// console.log(getFacebookUrls())
+		// console.log(getInstagramUrls())
 	}, [])
 
 	return (
