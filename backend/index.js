@@ -1,7 +1,10 @@
 const express = require("express")
+const cors = require("cors")
 const app = express()
+app.use(cors())
 const router = express.Router()
 app.use("/api", router)
+
 
 router.get("/", (request, response) => {
 	response.send("<h1>Hello World!</h1>")
