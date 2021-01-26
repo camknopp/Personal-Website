@@ -7,16 +7,28 @@ import SpotifyPlayer from "react-spotify-player"
 import { Facebook } from "reactjs-social-embed"
 import { Collapse } from "react-collapse"
 import AboutPage from "./components/AboutPage"
-import { getYoutubeUrls } from "./services/retrieveSocialMedia"
+import {
+	getYoutubeUrls,
+	getSpotifyUrls,
+	getFacebookUrls,
+	getInstagramUrls
+} from "./services/retrieveSocialMedia"
 
 function App() {
+	// states used to determine which content is hidden/shown
 	const [showAbout, setShowAbout] = useState(true)
 	const [showYoutube, setShowYoutube] = useState(false)
 	const [showInstagram, setShowInstagram] = useState(false)
 	const [showFacebook, setShowFacebook] = useState(false)
-  const [showSpotify, setShowSpotify] = useState(false)
-  
-  console.log(getYoutubeUrls())
+	const [showSpotify, setShowSpotify] = useState(false)
+
+	// effect hook used to retrieve social media urls from respective APIs
+	useEffect(() => {
+		console.log(getYoutubeUrls())
+		console.log(getSpotifyUrls())
+		console.log(getFacebookUrls())
+		console.log(getInstagramUrls())
+	}, [])
 
 	return (
 		<div>
@@ -25,7 +37,7 @@ function App() {
 					<div
 						onClick={e => {
 							e.preventDefault()
-              setShowAbout(!showAbout)
+							setShowAbout(!showAbout)
 							window.scrollTo({
 								top: 0,
 								left: 0,
