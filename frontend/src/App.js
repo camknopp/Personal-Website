@@ -8,8 +8,6 @@ import { Facebook } from "reactjs-social-embed"
 import { Collapse } from "react-collapse"
 import AboutPage from "./components/AboutPage"
 import SocialLink from "./components/SocialLink"
-import parse from "html-react-parser"
-import EmbedContainer from "react-oembed-container"
 
 import {
 	getYoutubeUrls,
@@ -27,21 +25,10 @@ function App() {
 	const [showFacebook, setShowFacebook] = useState(false)
 	const [showSpotify, setShowSpotify] = useState(false)
 
-	let html_code = ""
-
-	useEffect(async () => {
-		const response = await getInstagramHTML()
-		html_code = response.html
-		// console.log("html_code " + html_code)
-		console.log(html_code)
-		// console.log("html_code = " + html_code)
-	}, [])
-
-
+	let client_access_tok = "413756139694463|a698c81787ce91d8f6d7160dfb0c6d91"  // app-id|client_token
 
 	return (
 		<div>
-			{parse(html_code)}
 			<div>
 				<header className="sticky-header">
 					<div
@@ -165,16 +152,16 @@ function App() {
 					<AboutPage />
 				</Collapse>
 
-				{/* <Collapse className=".ReactCollapse--collapse" isOpened={showYoutube}>
+				<Collapse className=".ReactCollapse--collapse" isOpened={showYoutube}>
 					<div className="scrolling-wrapper-flexbox">
 						<div className="card">
-							<ReactPlayer url="https://www.youtube.com/watch?v=3fmqava7CxI&ab_channel=CamKnoppMusic" />
+							<ReactPlayer url="https://www.youtube.com/watch?v=3fmqava7CxI" />
 						</div>
 						<div className="card">
-							<ReactPlayer url="https://www.youtube.com/watch?v=4Jrp1jKm_gE&feature=youtu.be&ab_channel=CamKnoppMusic" />
+							<ReactPlayer url="https://www.youtube.com/watch?v=4Jrp1jKm_gE" />
 						</div>
 						<div className="card">
-							<ReactPlayer url="https://www.youtube.com/watch?v=SZ1Q1v5Q1hw&ab_channel=CamKnoppMusic" />
+							<ReactPlayer url="https://www.youtube.com/watch?v=SZ1Q1v5Q1hw" />
 						</div>
 					</div>
 					<br></br>
@@ -187,7 +174,7 @@ function App() {
 					</div>
 					<br></br>
 					<br></br>
-				</Collapse> */}
+				</Collapse>
 
 				<Collapse className=".ReactCollapse--collapse" isOpened={showSpotify}>
 					<div className="scrolling-wrapper-flexbox">
@@ -248,13 +235,37 @@ function App() {
 
 				<Collapse className=".ReactCollapse--collapse" isOpened={showInstagram}>
 					<div className="scrolling-wrapper-flexbox">
-						{/* <div className="card">
+						<div className="card">
 							<InstagramEmbed
 								url="https://www.instagram.com/p/CKO0_nUDa97/?utm_source=ig_web_copy_link"
-
-								//clientAccessToken={access_tok}
+								clientAccessToken={client_access_tok}
 							/>
-						</div> */}
+						</div>
+						<div className="card">
+							<InstagramEmbed
+								url="https://www.instagram.com/p/CKADSRiD6n2/?utm_source=ig_web_copy_link"
+								clientAccessToken={client_access_tok}
+							/>
+						</div>
+						<div className="card">
+							<InstagramEmbed
+								url="https://www.instagram.com/p/CJ4eEb7rkrS/?utm_source=ig_web_copy_link"
+								clientAccessToken={client_access_tok}
+							/>
+						</div>
+						<div className="card">
+							<InstagramEmbed
+								url="https://www.instagram.com/p/CJ1-tUkrLpn/?utm_source=ig_web_copy_link"
+								clientAccessToken={client_access_tok}
+							/>
+						</div>
+						<div className="card">
+							<InstagramEmbed
+								url="https://www.instagram.com/p/CJr0VnkjYe2/?utm_source=ig_web_copy_link"
+								clientAccessToken={client_access_tok}
+							/>
+						</div>
+						
 					</div>
 					<br></br>
 					<br></br>
