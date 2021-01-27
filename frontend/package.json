@@ -41,13 +41,16 @@
   },
   "devDependencies": {
     "axios": "^0.21.1",
+    "babel-preset-gatsby": "^0.11.0",
     "dotenv": "^8.2.0",
+    "html-react-parser": "^1.2.1",
     "react-awesome-button": "^6.5.1",
     "react-collapse": "^5.1.0",
     "react-facebook": "^8.1.4",
     "react-feather": "^2.0.9",
     "react-icons": "^4.1.0",
     "react-instagram-embed": "^2.0.0",
+    "react-oembed-container": "^1.0.0",
     "react-player": "^2.8.1",
     "react-spotify-player": "^1.0.4",
     "react-spring": "^8.0.27"

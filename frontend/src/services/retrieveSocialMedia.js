@@ -12,8 +12,19 @@ export const getSpotifyUrls = async () => {
 
 export const getInstagramUrls = async () => {
     const response = await axios.get("http://localhost:3001/api/Instagram")
-    console.log(response.data)
+    return response.json
+    console.log(response)
 }
+
+export const getInstagramHTML = async () => {
+    const response = await axios.get("http://localhost:3001/api/InstagramHTML")
+    console.log(response.data)
+
+    return response.data
+    // const response = await 
+}
+
+
 
 export const getFacebookUrls = async () => {
     const response = await axios.get("http://localhost:3001/api/Facebook")

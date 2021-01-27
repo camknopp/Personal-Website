@@ -8,12 +8,15 @@ import { Facebook } from "reactjs-social-embed"
 import { Collapse } from "react-collapse"
 import AboutPage from "./components/AboutPage"
 import SocialLink from "./components/SocialLink"
+import parse from "html-react-parser"
+import EmbedContainer from "react-oembed-container"
 
 import {
 	getYoutubeUrls,
 	getSpotifyUrls,
 	getFacebookUrls,
-	getInstagramUrls
+	getInstagramUrls,
+	getInstagramHTML
 } from "./services/retrieveSocialMedia"
 
 function App() {
@@ -24,18 +27,21 @@ function App() {
 	const [showFacebook, setShowFacebook] = useState(false)
 	const [showSpotify, setShowSpotify] = useState(false)
 
-	// effect hook used to retrieve social media urls from respective APIs
+	let html_code = ""
+
 	useEffect(async () => {
-		// console.log(getYoutubeUrls())
-		const result = await getSpotifyUrls()
-		console.log(result)
-		//	console.log(getSpotifyUrls())
-		// console.log(getFacebookUrls())
-		// console.log(getInstagramUrls())
+		const response = await getInstagramHTML()
+		html_code = response.html
+		// console.log("html_code " + html_code)
+		console.log(html_code)
+		// console.log("html_code = " + html_code)
 	}, [])
+
+
 
 	return (
 		<div>
+			{parse(html_code)}
 			<div>
 				<header className="sticky-header">
 					<div
@@ -159,7 +165,7 @@ function App() {
 					<AboutPage />
 				</Collapse>
 
-				<Collapse className=".ReactCollapse--collapse" isOpened={showYoutube}>
+				{/* <Collapse className=".ReactCollapse--collapse" isOpened={showYoutube}>
 					<div className="scrolling-wrapper-flexbox">
 						<div className="card">
 							<ReactPlayer url="https://www.youtube.com/watch?v=3fmqava7CxI&ab_channel=CamKnoppMusic" />
@@ -174,11 +180,14 @@ function App() {
 					<br></br>
 					<br></br>
 					<div className="flex-container">
-						<SocialLink text="Visit page" link="https://www.youtube.com/channel/UCcwGXpKW4HmBtmRC5I7wFEg" />
+						<SocialLink
+							text="Visit Youtube Page"
+							link="https://www.youtube.com/channel/UCcwGXpKW4HmBtmRC5I7wFEg"
+						/>
 					</div>
 					<br></br>
 					<br></br>
-				</Collapse>
+				</Collapse> */}
 
 				<Collapse className=".ReactCollapse--collapse" isOpened={showSpotify}>
 					<div className="scrolling-wrapper-flexbox">
@@ -195,14 +204,17 @@ function App() {
 					<br></br>
 					<br></br>
 					<div className="flex-container">
-						<SocialLink text="Visit page" link="https://open.spotify.com/artist/2IdGjQXZoh0RKJlYFabIce?si=QDo6PltoRUiud-KDcUhfhQ" />
+						<SocialLink
+							text="Visit Spotify Page"
+							link="https://open.spotify.com/artist/2IdGjQXZoh0RKJlYFabIce?si=QDo6PltoRUiud-KDcUhfhQ"
+						/>
 					</div>
 					<br></br>
 					<br></br>
 				</Collapse>
 
 				<Collapse className=".ReactCollapse--collapse" isOpened={showFacebook}>
-					<div className="scrolling-wrapper-flexbox">
+					{/* <div className="scrolling-wrapper-flexbox">
 						<div className="card">
 							<Facebook
 								type="post"
@@ -221,17 +233,40 @@ function App() {
 								url="https://www.facebook.com/camknoppmusic/posts/987330084766576"
 							/>
 						</div>
-					</div>
+					</div> */}
 					<br></br>
 					<br></br>
 					<div className="flex-container">
-						<SocialLink text="Visit page" link="https://www.facebook.com/camknoppmusic/" />
+						<SocialLink
+							text="Visit Facebook Page"
+							link="https://www.facebook.com/camknoppmusic/"
+						/>
 					</div>
 					<br></br>
 					<br></br>
 				</Collapse>
 
-				{/* TODO: ADD IN INSTAGRAM EMBEDDING */}
+				<Collapse className=".ReactCollapse--collapse" isOpened={showInstagram}>
+					<div className="scrolling-wrapper-flexbox">
+						{/* <div className="card">
+							<InstagramEmbed
+								url="https://www.instagram.com/p/CKO0_nUDa97/?utm_source=ig_web_copy_link"
+
+								//clientAccessToken={access_tok}
+							/>
+						</div> */}
+					</div>
+					<br></br>
+					<br></br>
+					<div className="flex-container">
+						<SocialLink
+							text="Visit Instagram Page"
+							link="https://www.instagram.com/camknopp/"
+						/>
+					</div>
+					<br></br>
+					<br></br>
+				</Collapse>
 			</div>
 		</div>
 	)
