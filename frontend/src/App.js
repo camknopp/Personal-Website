@@ -7,6 +7,8 @@ import SpotifyPlayer from "react-spotify-player"
 import { Facebook } from "reactjs-social-embed"
 import { Collapse } from "react-collapse"
 import AboutPage from "./components/AboutPage"
+import SocialLink from "./components/SocialLink"
+
 import {
 	getYoutubeUrls,
 	getSpotifyUrls,
@@ -24,10 +26,10 @@ function App() {
 
 	// effect hook used to retrieve social media urls from respective APIs
 	useEffect(async () => {
-    // console.log(getYoutubeUrls())
-    const result = await getSpotifyUrls()
-    console.log(result)
-	//	console.log(getSpotifyUrls())
+		// console.log(getYoutubeUrls())
+		const result = await getSpotifyUrls()
+		console.log(result)
+		//	console.log(getSpotifyUrls())
 		// console.log(getFacebookUrls())
 		// console.log(getInstagramUrls())
 	}, [])
@@ -169,6 +171,13 @@ function App() {
 							<ReactPlayer url="https://www.youtube.com/watch?v=SZ1Q1v5Q1hw&ab_channel=CamKnoppMusic" />
 						</div>
 					</div>
+					<br></br>
+					<br></br>
+					<div className="flex-container">
+						<SocialLink text="Visit page" link="https://www.youtube.com/channel/UCcwGXpKW4HmBtmRC5I7wFEg" />
+					</div>
+					<br></br>
+					<br></br>
 				</Collapse>
 
 				<Collapse className=".ReactCollapse--collapse" isOpened={showSpotify}>
@@ -183,6 +192,13 @@ function App() {
 							<SpotifyPlayer uri="https://open.spotify.com/track/1IGdlPlwzuy57O9xCg0HmD?si=Rx8DDmzVQBmX6AAW609CbA" />
 						</div>
 					</div>
+					<br></br>
+					<br></br>
+					<div className="flex-container">
+						<SocialLink text="Visit page" link="https://open.spotify.com/artist/2IdGjQXZoh0RKJlYFabIce?si=QDo6PltoRUiud-KDcUhfhQ" />
+					</div>
+					<br></br>
+					<br></br>
 				</Collapse>
 
 				<Collapse className=".ReactCollapse--collapse" isOpened={showFacebook}>
@@ -206,6 +222,13 @@ function App() {
 							/>
 						</div>
 					</div>
+					<br></br>
+					<br></br>
+					<div className="flex-container">
+						<SocialLink text="Visit page" link="https://www.facebook.com/camknoppmusic/" />
+					</div>
+					<br></br>
+					<br></br>
 				</Collapse>
 
 				{/* TODO: ADD IN INSTAGRAM EMBEDDING */}
