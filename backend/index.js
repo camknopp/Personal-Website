@@ -2,10 +2,13 @@ const express = require("express")
 const cors = require("cors")
 const axios = require("axios")
 require("dotenv").config()
+const scraperApiClient = require("scraperapi-sdk")(`${process.env.SCRAPER_API_KEY}`)
+
 const app = express()
 app.use(cors())
 const router = express.Router()
 app.use("/api", router)
+
 
 router.get("/", (request, response) => {
 	response.send("<h1>Hello World!</h1>")
@@ -14,12 +17,33 @@ router.get("/", (request, response) => {
 router.get("/Youtube", async (request, response) => {
 	// this will make a request to the Youtube API
 	// will retrieve the 5 or so most recent Youtube videos for my channel
-	// channel id UCcwGXpKW4HmBtmRC5I7wFEg
-	const result = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&channelId=${process.env.YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=50`)
+
+	// const result = await axios.get(
+	// 	`https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&channelId=${process.env.YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=50`
+	// )
+
+	// // url format is https://www.youtube.com/watch?v=[VIDEO_ID]&ab_channel=CamKnoppMusic
+	// // return five most recent videos
+
+	// let video_list = result.data.items
+	// let url_list = []
+
+	// let i = 0
+	// while (i < 10) {
+	// 	let curr_url = `https://www.youtube.com/watch?v=${video_list[i].id.videoId}&ab_channel=CamKnoppMusic`
+	// 	url_list.push([curr_url, video_list[i].snippet.title])
+
+	// 	i += 1
+	// }
+
+	// response.send(url_list)
+
+	//const result = await scraperApiClient.get(`https://www.youtube.com/user/camknoppofficial/videos`)
 
 
 
-	response.json(result.data)
+	
+	//response.send(result)
 })
 
 router.get("/Spotify", async (request, response) => {

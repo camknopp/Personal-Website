@@ -9,13 +9,7 @@ import { Collapse } from "react-collapse"
 import AboutPage from "./components/AboutPage"
 import SocialLink from "./components/SocialLink"
 
-import {
-	getYoutubeUrls,
-	getSpotifyUrls,
-	getFacebookUrls,
-	getInstagramUrls,
-	getInstagramHTML
-} from "./services/retrieveSocialMedia"
+import socialMediaService from "./services/retrieveSocialMedia"
 
 function App() {
 	// states used to determine which content is hidden/shown
@@ -25,7 +19,18 @@ function App() {
 	const [showFacebook, setShowFacebook] = useState(false)
 	const [showSpotify, setShowSpotify] = useState(false)
 
-	let client_access_tok = "413756139694463|a698c81787ce91d8f6d7160dfb0c6d91"  // app-id|client_token
+	let client_access_tok = "413756139694463|a698c81787ce91d8f6d7160dfb0c6d91" // app-id|client_token
+
+	//var res = 
+
+	// const getUrls = async () => {
+	// 	res = await socialMediaService.getYoutubeUrls()
+	// 	console.log(typeof res)
+	// }
+	const thing = "watch?v=7iBQBJnyfi8 watch?v=VFns39RXPrU watch?v=vsMydMDi3rI"
+	const regex = /^watch\?v=.{11}$/
+
+	console.log(regex.test(thing))
 
 	return (
 		<div>
@@ -154,6 +159,9 @@ function App() {
 
 				<Collapse className=".ReactCollapse--collapse" isOpened={showYoutube}>
 					<div className="scrolling-wrapper-flexbox">
+						{/* <div className="card">
+							<ReactPlayer url={res[0][0]} />
+						</div> */}
 						<div className="card">
 							<ReactPlayer url="https://www.youtube.com/watch?v=3fmqava7CxI" />
 						</div>
@@ -162,6 +170,12 @@ function App() {
 						</div>
 						<div className="card">
 							<ReactPlayer url="https://www.youtube.com/watch?v=SZ1Q1v5Q1hw" />
+						</div>
+						<div className="card">
+							<ReactPlayer url="https://www.youtube.com/watch?v=nneF1GRC8fQ&ab_channel=CamKnoppMusic" />
+						</div>
+						<div className="card">
+							<ReactPlayer url="https://www.youtube.com/watch?v=3_PXSOW2JBo&ab_channel=CamKnoppMusic" />
 						</div>
 					</div>
 					<br></br>
@@ -201,8 +215,8 @@ function App() {
 				</Collapse>
 
 				<Collapse className=".ReactCollapse--collapse" isOpened={showFacebook}>
-					{/* <div className="scrolling-wrapper-flexbox">
-						<div className="card">
+					<div className="scrolling-wrapper-flexbox">
+						<div className="facebook-card">
 							<Facebook
 								type="post"
 								width="100%"
@@ -211,7 +225,7 @@ function App() {
 								url="https://www.facebook.com/camknoppmusic/posts/1806289546203955"
 							/>
 						</div>
-						<div className="facebook-card">
+						<div className="card">
 							<Facebook
 								type="post"
 								width="100%"
@@ -220,7 +234,7 @@ function App() {
 								url="https://www.facebook.com/camknoppmusic/posts/987330084766576"
 							/>
 						</div>
-					</div> */}
+					</div>
 					<br></br>
 					<br></br>
 					<div className="flex-container">
@@ -265,7 +279,6 @@ function App() {
 								clientAccessToken={client_access_tok}
 							/>
 						</div>
-						
 					</div>
 					<br></br>
 					<br></br>
