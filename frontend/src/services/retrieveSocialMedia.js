@@ -1,12 +1,10 @@
 import axios from "axios"
 
 const getYoutubeUrls = async () => {
-    const response = await axios.get("http://localhost:3001/api/Youtube")
+    const response = await axios.get("http://localhost:3001/api/Youtube")   
+    const urlsJSON = await response.data
 
-    const regex = /^watch\?v=.{11}$/
-    
-
-    return response.data
+    return urlsJSON
 }
 
 const getSpotifyUrls = async () => {

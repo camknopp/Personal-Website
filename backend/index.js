@@ -2,13 +2,14 @@ const express = require("express")
 const cors = require("cors")
 const axios = require("axios")
 require("dotenv").config()
-const scraperApiClient = require("scraperapi-sdk")(`${process.env.SCRAPER_API_KEY}`)
+const scraperApiClient = require("scraperapi-sdk")(
+	`${process.env.SCRAPER_API_KEY}`
+)
 
 const app = express()
 app.use(cors())
 const router = express.Router()
 app.use("/api", router)
-
 
 router.get("/", (request, response) => {
 	response.send("<h1>Hello World!</h1>")
@@ -22,8 +23,8 @@ router.get("/Youtube", async (request, response) => {
 	// 	`https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&channelId=${process.env.YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=50`
 	// )
 
-	// // url format is https://www.youtube.com/watch?v=[VIDEO_ID]&ab_channel=CamKnoppMusic
-	// // return five most recent videos
+	// url format is https://www.youtube.com/watch?v=[VIDEO_ID]&ab_channel=CamKnoppMusic
+	// return five most recent videos
 
 	// let video_list = result.data.items
 	// let url_list = []
@@ -38,11 +39,27 @@ router.get("/Youtube", async (request, response) => {
 
 	// response.send(url_list)
 
-	//const result = await scraperApiClient.get(`https://www.youtube.com/user/camknoppofficial/videos`)
+	const result = await scraperApiClient.get(
+		`https://www.youtube.com/user/camknoppofficial/videos`
+	)
 
+	// console.log(result)
+	// console.log(typeof result)
 
+	const regex = /watch\?v=.{11}/g
 
-	
+	url_list = [...result.match(regex)]
+
+	console.log(url_list)
+
+	response.json({
+		url1: url_list[0],
+		url2: url_list[1],
+		url3: url_list[2],
+		url4: url_list[3],
+		url5: url_list[4]
+	})
+
 	//response.send(result)
 })
 

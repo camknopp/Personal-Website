@@ -18,19 +18,23 @@ function App() {
 	const [showInstagram, setShowInstagram] = useState(false)
 	const [showFacebook, setShowFacebook] = useState(false)
 	const [showSpotify, setShowSpotify] = useState(false)
+	const [urls, setUrls] = useState([])
 
 	let client_access_tok = "413756139694463|a698c81787ce91d8f6d7160dfb0c6d91" // app-id|client_token
-
-	//var res = 
 
 	// const getUrls = async () => {
 	// 	res = await socialMediaService.getYoutubeUrls()
 	// 	console.log(typeof res)
 	// }
-	const thing = "watch?v=7iBQBJnyfi8 watch?v=VFns39RXPrU watch?v=vsMydMDi3rI"
-	const regex = /^watch\?v=.{11}$/
+	
+	useEffect(async () => {
+		const getUrls = async () => {
+			let result = await socialMediaService.getYoutubeUrls()
+			setUrls([result.url1, result.url2, result.url3, result.url4, result.url5])
+		}
+	}, [])
 
-	console.log(regex.test(thing))
+	console.log(urls)
 
 	return (
 		<div>
@@ -176,6 +180,9 @@ function App() {
 						</div>
 						<div className="card">
 							<ReactPlayer url="https://www.youtube.com/watch?v=3_PXSOW2JBo&ab_channel=CamKnoppMusic" />
+						</div>
+						<div className="card">
+							<ReactPlayer url={`https://www.youtube.com/${urls[0]}&ab_channel=CamKnoppMusic`} />
 						</div>
 					</div>
 					<br></br>
