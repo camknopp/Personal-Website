@@ -27,14 +27,14 @@ function App() {
 	// 	console.log(typeof res)
 	// }
 	
-	useEffect(async () => {
-		const getUrls = async () => {
-			let result = await socialMediaService.getYoutubeUrls()
-			setUrls([result.url1, result.url2, result.url3, result.url4, result.url5])
-		}
-	}, [])
+	// useEffect(async () => {
+	// 	const getUrls = async () => {
+	// 		let result = await socialMediaService.getYoutubeUrls()
+	// 		setUrls([result.url1, result.url2, result.url3, result.url4, result.url5])
+	// 	}
+	// }, [])
 
-	console.log(urls)
+	// console.log(urls)
 
 	return (
 		<div>
@@ -181,9 +181,9 @@ function App() {
 						<div className="card">
 							<ReactPlayer url="https://www.youtube.com/watch?v=3_PXSOW2JBo&ab_channel=CamKnoppMusic" />
 						</div>
-						<div className="card">
+						{/* <div className="card">
 							<ReactPlayer url={`https://www.youtube.com/${urls[0]}&ab_channel=CamKnoppMusic`} />
-						</div>
+						</div> */}
 					</div>
 					<br></br>
 					<br></br>
